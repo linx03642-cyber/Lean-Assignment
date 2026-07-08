@@ -1,0 +1,25 @@
+name = "MyLean"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["MyLean"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = true
+weak.linter.style.header = false
+weak.linter.style.longLine = false
+maxSynthPendingDepth = 3
+
+[[lean_lib]]
+name = "MyLean"
+
+[[require]]
+name = "mdgen"
+git = "https://github.com/Seasawher/mdgen.git"
+rev = "v4.30.0"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.30.0"
