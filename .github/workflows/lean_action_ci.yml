@@ -17,5 +17,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: leanprover/lean-action@v1
-      - uses: leanprover-community/docgen-action@v1
+      
+      - name: Install elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+          
+      - name: Get Mathlib cache
+        run: lake exe cache get
+        
+      - name: Build project
+        run: lake build
