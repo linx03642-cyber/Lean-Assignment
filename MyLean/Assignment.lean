@@ -138,7 +138,7 @@ theorem prob2 : ¬ ∃ M : TermT, interp M = X2 := by
   exact hCounterExNotInInterpM hCounterExInInterpM
 
 -- 3. 問3
--- 3.1. 付値の定義（不変量）
+-- 3.1. 付値の定義
 def val : TermU → Bool
   | TermU.Z => false
   | TermU.arr a b => !val a || val b
