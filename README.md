@@ -5,4 +5,3 @@
 - [Lean Project](./MyLean/Assignment.lean) 
 
 - [レポート](./report/Assignment.pdf)
-
