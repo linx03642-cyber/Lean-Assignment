@@ -1,13 +1,8 @@
-# MyLean
+数学特別講義4「数学系エンドユーザーのためのLean入門」における課題成果物です。
 
-## GitHub configuration
+課題の詳細なレポートおよび形式証明の解説は以下から参照可能です。
 
-To set up your new GitHub repository, follow these steps:
+- [レポート LaTeX ソースコード](./report/Assignment.tex) 
 
-* Under your repository name, click **Settings**.
-* In the **Actions** section of the sidebar, click "General".
-* Check the box **Allow GitHub Actions to create and approve pull requests**.
-* Click the **Pages** section of the settings sidebar.
-* In the **Source** dropdown menu, select "GitHub Actions".
+- [形式証明レポート (PDF)](./report/Assignment.pdf)
 
-After following the steps above, you can remove this section from the README file.
