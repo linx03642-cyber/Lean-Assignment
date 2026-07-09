@@ -1,0 +1,184 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb, stmaryrd}
+\usepackage[dvipdfmx]{graphicx}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1\baselineskip}
+
+\title{大学院入試問題 解答}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{解答}
+
+結論からいうと，$X_1,X_2,X_3$についてはそのような項は存在せず，$X_4$については存在する．
+以下，$f(M,N)$を簡単に$MN$と書く．
+
+\subsection*{$X_1$について}
+
+まず，$\mathcal U$の項に対する写像$\sigma:\mathcal U\to\mathcal U$を
+\[
+  \sigma(0)=(0\to 0),\qquad
+  \sigma(a\to b)=(\sigma(a)\to \sigma(b))
+\]
+で定める．このとき任意の$M\in\mathcal T$について
+\[
+  u\in \llbracket M\rrbracket \quad\Longrightarrow\quad
+  \sigma(u)\in \llbracket M\rrbracket
+\]
+が成り立つ．実際，これは$M$に関する構造帰納法で示される．$M=B,C,I$の場合は，$\llbracket B\rrbracket,\llbracket C\rrbracket,\llbracket I\rrbracket$の定義式に現れる各文字$a,b,c$をそれぞれ$\sigma(a),\sigma(b),\sigma(c)$に置き換えればよい．また$M=f(P,Q)$の場合，$u\in\llbracket f(P,Q)\rrbracket$ならば，ある$a\in\mathcal U$が存在して
+\[
+  (a\to u)
+  \in\llbracket P\rrbracket,
+  \qquad
+  a\in\llbracket Q\rrbracket
+\]
+である．帰納法の仮定より
+\[
+  (\sigma(a)\to\sigma(u))=\sigma(a\to u)
+  \in\llbracket P\rrbracket,
+  \qquad
+  \sigma(a)
+  \in\llbracket Q\rrbracket
+\]
+となるので，定義より$\sigma(u)\in\llbracket f(P,Q)\rrbracket$である．
+
+いま仮に$\llbracket M\rrbracket=X_1=\{(0\to 0)\}$となる$M$が存在したとする．すると$(0\to 0)\in\llbracket M\rrbracket$であるから，上の性質より
+\[
+  \sigma(0\to0)=((0\to0)\to(0\to0))
+  \in\llbracket M\rrbracket=X_1
+\]
+となる．しかし$((0\to0)\to(0\to0))\ne(0\to0)$であるから矛盾である．したがって$X_1=\llbracket M\rrbracket$となる$M$は存在しない．
+
+\subsection*{$X_2$について}
+
+$\mathcal U$の項$u$に対して整数$\delta(u)$を
+\[
+  \delta(0)=1,
+  \qquad
+  \delta(a\to b)=\delta(b)-\delta(a)
+\]
+で定める．このとき任意の$M\in\mathcal T$と任意の$u\in\llbracket M\rrbracket$について
+\[
+  \delta(u)=0
+\tag{1}
+\]
+が成り立つ．これも$M$に関する構造帰納法で示す．
+
+例えば
+\[
+  ((b\to c)\to(a\to b)\to(a\to c))
+\]
+については
+\[
+\begin{aligned}
+&\delta((b\to c)\to(a\to b)\to(a\to c)) \\
+&=\delta((a\to b)\to(a\to c))-\delta(b\to c) \\
+&=\{\delta(a\to c)-\delta(a\to b)\}-\{\delta(c)-\delta(b)\} \\
+&=\{(\delta(c)-\delta(a))-(\delta(b)-\delta(a))\}-(\delta(c)-\delta(b))=0.
+\end{aligned}
+\]
+$C,I$の場合も同様に直接計算して$0$になる．また$M=f(P,Q)$の場合，$u\in\llbracket f(P,Q)\rrbracket$ならば，ある$a$について$(a\to u)\in\llbracket P\rrbracket$かつ$a\in\llbracket Q\rrbracket$である．帰納法の仮定より
+\[
+  \delta(a\to u)=0,
+  \qquad
+  \delta(a)=0
+\]
+であり，$\delta(a\to u)=\delta(u)-\delta(a)$だから$\delta(u)=0$である．よって(1)が示された．
+
+一方，$X_2$の元の中には(1)を満たさないものがある．実際，$a=(0\to0),\ b=0$とおくと
+\[
+  ((0\to0)\to0\to0\to(0\to0))\in X_2
+\]
+であるが，
+\[
+  \delta((0\to0)\to0\to0\to(0\to0))=-2
+\]
+である．したがってこの元はどの$\llbracket M\rrbracket$にも属し得ない．ゆえに$X_2=\llbracket M\rrbracket$となる$M$は存在しない．
+
+\subsection*{$X_3$について}
+
+$\mathcal U$の各項に真偽値$v(u)$を次のように割り当てる．
+\[
+  v(0)=\mathrm{false},
+  \qquad
+  v(a\to b)=(\neg v(a))\lor v(b).
+\]
+すなわち$\to$を通常の含意として解釈し，$0$を偽として解釈する．
+
+このとき任意の$M\in\mathcal T$と任意の$u\in\llbracket M\rrbracket$について
+\[
+  v(u)=\mathrm{true}
+\tag{2}
+\]
+が成り立つ．実際，$B,C,I$に対応する型
+\[
+  (b\to c)\to(a\to b)\to(a\to c),
+  \qquad
+  (a\to b\to c)\to(b\to a\to c),
+  \qquad
+  a\to a
+\]
+はいずれも古典命題論理の恒真式である．また$M=f(P,Q)$の場合，$u\in\llbracket f(P,Q)\rrbracket$ならば，ある$a$について$(a\to u)\in\llbracket P\rrbracket$かつ$a\in\llbracket Q\rrbracket$である．帰納法の仮定より$v(a\to u)=\mathrm{true}$かつ$v(a)=\mathrm{true}$であるから，含意の真理値表より$v(u)=\mathrm{true}$である．
+
+ところが$X_3$には偽になる元がある．$a=0,\ b=(0\to0)$とおく．このとき$v(a)=\mathrm{false}$，$v(b)=\mathrm{true}$であり，
+\[
+  (((a\to b)\to b)\to a)
+  \in X_3
+\]
+である．しかし
+\[
+  v(((a\to b)\to b)\to a)=\mathrm{false}
+\]
+となる．したがってこの元はどの$\llbracket M\rrbracket$にも属し得ない．ゆえに$X_3=\llbracket M\rrbracket$となる$M$は存在しない．
+
+\subsection*{$X_4$について}
+
+$X_4$については具体的に項を構成できる．
+\[
+  M_4=f\bigl(f(B,C),\ f(f(B,f(B,C)),C)\bigr)
+\]
+とおく．このとき$\llbracket M_4\rrbracket=X_4$であることを示す．
+
+まず$BC=f(B,C)$と書く．定義から，$u\in\llbracket BC\rrbracket$であることは，ある$p,q,r$について
+\[
+  u=(p\to q\to r)\to(q\to p\to r)
+\]
+と書けることと同値である．つまり
+\[
+  \llbracket BC\rrbracket
+  =\{(p\to q\to r)\to(q\to p\to r)\mid p,q,r\in\mathcal U\}.
+\tag{3}
+\]
+これは$C$と同じ形の型を与える集合である．
+
+次に
+\[
+  H=f(f(B,BC),C)
+\]
+とおく．同様に定義を順に展開すると
+\[
+  \llbracket H\rrbracket
+  =\{((a\to b\to c\to d)\to b\to a\to c\to d)
+      \mid a,b,c,d\in\mathcal U\}
+\tag{4}
+\]
+が得られる．
+
+最後に$M_4=f(BC,H)$である．(3),(4)を用いて定義を展開すると，$u\in\llbracket M_4\rrbracket$であることは，ある$a,b,c,d$について
+\[
+  u=(a\to b\to c\to d)\to(c\to b\to a\to d)
+\]
+と書けることと同値である．したがって
+\[
+  \llbracket M_4\rrbracket
+  =\{((a\to b\to c\to d)\to(c\to b\to a\to d))
+      \mid a,b,c,d\in\mathcal U\}
+  =X_4.
+\]
+よって$X_4$については，求める項$M_4$が存在する．
+
+\end{document}
